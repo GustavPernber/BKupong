@@ -18,7 +18,7 @@
 
 	<div
 		transition:fade={{ duration: 200 }}
-		class="z-30 flex flex-col items-center justify-center w-full max-w-[25rem] gap-5 px-5 py-4 border bg-greyBlue border-blueStroke rounded-xl"
+		class="z-30 flex flex-col items-center justify-center w-full max-w-[25rem] gap-5 px-5 py-4 border bg-greyBlue border-blueStroke rounded-xl mb-[5rem]"
 	>
 		<span class="text-gray-400 ">{name}</span>
 		<div class="w-full overflow-hidden rounded-xl">
