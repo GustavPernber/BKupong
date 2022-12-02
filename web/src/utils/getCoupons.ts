@@ -6,6 +6,7 @@ const getCoupons = async (): Promise<Coupon[]> => {
 	const client = new MongoClient(connectionURI)
 
 	const coupons: Coupon[] = await client.db().collection("coupons").find<Coupon>({}).toArray()
+	await client.close()
 	return coupons
 }
 

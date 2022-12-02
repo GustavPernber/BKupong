@@ -6,20 +6,32 @@ import CouponCard from "../components/CouponCard.astro"
 import generateCode from "../utils/generateQrCodes"
 
 const coupons = await getCoupons()
-// coupons.forEach(async (coupon) => {
-// 	await generateCode(coupon.code)
-// })
+coupons.forEach(async (coupon) => {
+	await generateCode(coupon.code)
+})
 ---
 
 <Layout title="BKuponger">
-	<main class="bg-bgBlue min-h-screen grid grid-cols-1 grid-rows-[auto_1fr]">
+	<main class="bg-bgBlue min-h-screen grid grid-cols-1 grid-rows-[auto_1fr_auto]">
 		<Header />
-		<div class="flex flex-col items-center justify-start gap-5 px-8">
+		<div class="flex flex-col items-center justify-start px-8 gap-7">
 			{
 				coupons.map((coupon) => {
 					return <CouponCard {...coupon} />
 				})
 			}
 		</div>
+		<footer class="bg-greyBlue h-[6rem] mt-16 flex flex-row justify-between p-3">
+			<a href="https://github.com/GustavPernber/BKupong">
+				<iconify-icon icon="mdi:github" class="text-[2rem] text-gray-400"></iconify-icon>
+			</a>
+			<div class="flex flex-row items-center justify-center gap-1 opacity-60 text-md h-min">
+				<iconify-icon icon="mdi:hamburger"></iconify-icon>
+				<div class="flex font-extrabold tracking-tighter">
+					<h1 class="text-green-500">BK</h1>
+					<h1>UPONGER</h1>
+				</div>
+			</div>
+		</footer>
 	</main>
 </Layout>
