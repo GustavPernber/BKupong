@@ -22,7 +22,7 @@
 	>
 		<span class="text-gray-400 ">{name}</span>
 		<div class="w-full overflow-hidden rounded-xl">
-			<img class="w-full" src={`qr/qr-${code}.png`} alt={code} />
+			<img class="w-full" src={`qr-${code}.png`} alt={code} />
 		</div>
 
 		<button
