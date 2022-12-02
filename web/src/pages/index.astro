@@ -7,9 +7,9 @@ import generateCode from "../utils/generateQrCodes"
 import Icon from "../components/svelte/Icon.svelte"
 
 const coupons = await getCoupons()
-coupons.forEach(async (coupon) => {
-	await generateCode(coupon.code)
-})
+// coupons.forEach(async (coupon) => {
+// 	await generateCode(coupon.code)
+// })
 ---
 
 <Layout title="BKuponger">
