@@ -6,12 +6,19 @@
 	export let showModal: boolean
 </script>
 
-<sectio
-	transition:fade={{ duration: 150 }}
-	class="fixed top-0 left-0 grid w-screen h-screen px-5 backdrop-blur-sm bg-slate-900/20 place-items-center"
->
+<section class="fixed top-0 left-0 grid w-screen h-screen px-5 place-items-center">
+	<!-- svelte-ignore a11y-click-events-have-key-events -->
 	<div
-		class="flex flex-col items-center justify-center w-full gap-5 px-5 py-4 border bg-greyBlue border-blueStroke rounded-xl"
+		transition:fade={{ duration: 150 }}
+		on:click={() => {
+			showModal = !showModal
+		}}
+		class="absolute top-0 left-0 w-full h-full bg-red-50 backdrop-blur-md bg-black/40"
+	/>
+
+	<div
+		transition:fade={{ duration: 200 }}
+		class="z-30 flex flex-col items-center justify-center w-full gap-5 px-5 py-4 border bg-greyBlue border-blueStroke rounded-xl"
 	>
 		<span class="text-gray-400 ">{name}</span>
 		<div class="w-full overflow-hidden rounded-xl">
@@ -27,4 +34,4 @@
 			Stäng
 		</button>
 	</div>
-</sectio>
+</section>
