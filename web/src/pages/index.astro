@@ -1,14 +1,15 @@
 ---
 import Layout from "../layouts/Layout.astro"
-import Header from "../components/Header.astro"
+import Header from "../components/astro/Header.astro"
 import getCoupons from "../utils/getCoupons"
-import CouponCard from "../components/CouponCard.astro"
+import CouponCard from "../components/astro/CouponCard.astro"
 import generateCode from "../utils/generateQrCodes"
+import Icon from "../components/svelte/Icon.svelte"
 
 const coupons = await getCoupons()
-coupons.forEach(async (coupon) => {
-	await generateCode(coupon.code)
-})
+// coupons.forEach(async (coupon) => {
+// 	await generateCode(coupon.code)
+// })
 ---
 
 <Layout title="BKuponger">
@@ -23,10 +24,10 @@ coupons.forEach(async (coupon) => {
 		</div>
 		<footer class="bg-greyBlue h-[6rem] mt-16 flex flex-row justify-between p-3">
 			<a href="https://github.com/GustavPernber/BKupong">
-				<iconify-icon icon="mdi:github" class="text-[2rem] text-gray-400"></iconify-icon>
+				<Icon name="github" className="  text-gray-400" />
 			</a>
 			<div class="flex flex-row items-center justify-center gap-1 opacity-60 text-md h-min">
-				<iconify-icon icon="mdi:hamburger"></iconify-icon>
+				<Icon name="hamburger" className="text-white w-4" />
 				<div class="flex font-extrabold tracking-tighter">
 					<h1 class="text-green-500">BK</h1>
 					<h1>UPONGER</h1>
