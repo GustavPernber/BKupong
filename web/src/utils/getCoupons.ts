@@ -1,5 +1,5 @@
 import { MongoClient } from "mongodb"
-import type { Coupon } from "../utils/types"
+import type { Coupon } from "../types/types"
 
 const getCoupons = async (): Promise<Coupon[]> => {
 	const connectionURI = import.meta.env.MONGODB_READ_DEV as string

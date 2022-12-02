@@ -1,18 +1,21 @@
-<script>
+<script lang="ts">
 	import CodeModal from "./CodeModal.svelte"
+
+	export let name: string
+	export let code: string
 
 	let showModal = true
 </script>
 
 {#if showModal}
-	<CodeModal />
+	<CodeModal {name} {code} />
 {/if}
 
 <button
 	on:click={() => {
 		showModal = !showModal
 	}}
-	class="flex items-center justify-center w-full p-3 mt-6 font-semibold border bg-ctaGreen border-greenStroke rounded-xl tex-xl gap-2"
+	class="flex items-center justify-center w-full gap-2 p-3 mt-6 font-semibold border bg-ctaGreen border-greenStroke rounded-xl tex-xl"
 >
 	<iconify-icon icon="material-symbols:qr-code-rounded" class="text-2xl" />
 	<p>Visa QR</p>

@@ -1,5 +1,5 @@
 ---
-import type { Coupon } from "../utils/types"
+import type { Coupon } from "../types/types"
 import ModalButton from "./ModalButton.svelte"
 
 const { id, name, startDate, endDate, code, imgUrl }: Coupon = Astro.props as Coupon
@@ -15,5 +15,5 @@ const { id, name, startDate, endDate, code, imgUrl }: Coupon = Astro.props as Co
 	</div>
 
 	<h1 class="mt-3 text-xl font-bold text-center">{name}</h1>
-	<ModalButton client:idle />
+	<ModalButton code={code} name={name} client:idle />
 </article>
