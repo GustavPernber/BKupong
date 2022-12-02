@@ -18,6 +18,20 @@ const { title } = Astro.props;
 	</head>
 	<body>
 		<slot />
+		<script src="https://code.iconify.design/iconify-icon/1.0.2/iconify-icon.min.js"></script>
 	</body>
 </html>
+<style is:global>
 
+	@tailwind base;
+	@tailwind components;
+	@tailwind utilities;
+
+	@layer base {
+		html, button, input {
+			@apply text-white font-sans;
+		}
+
+	}
+	
+</style>

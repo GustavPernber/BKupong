@@ -1,5 +1,5 @@
-import * as dotenv from "dotenv";
-dotenv.config();
+import * as dotenv from "dotenv"
+dotenv.config()
 
 const config = {
 	url: {
@@ -7,11 +7,11 @@ const config = {
 		coupons: "https://bk-se-ordering-api.azurewebsites.net/cms/sv-SE/offers",
 		redeem: (id: number) => `https://bk-se-ordering-api.azurewebsites.net/offers/${id}/redeem `,
 	},
-	dbConnectionString: process.env.MONGODB || (process.env.MONGODB_DEV as string),
+	dbConnectionString: process.env.MONGODB_WRITE || (process.env.MONGODB_WRITE_DEV as string),
 	login: {
 		email: "hivim52628@sunetoa.com",
 		password: process.env.LOGIN_PASSWORD,
 	},
-};
+}
 
-export default config;
+export default config
