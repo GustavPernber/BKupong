@@ -2,7 +2,7 @@
 	import { fade } from "svelte/transition"
 
 	export let name: string
-	export let code: string
+	export let codeBlob: string
 	export let showModal: boolean
 </script>
 
@@ -22,7 +22,7 @@
 	>
 		<span class="text-gray-400 ">{name}</span>
 		<div class="w-full overflow-hidden rounded-xl">
-			<img class="w-full" src={`qr-${code}.png`} alt={code} />
+			<img class="w-full" src={codeBlob} alt={name} />
 		</div>
 
 		<button

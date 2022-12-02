@@ -3,13 +3,17 @@
 	import Icon from "./Icon.svelte"
 
 	export let name: string
-	export let code: string
+	export let codeBlob: string
 
 	let showModal = false
 </script>
 
+<svelte:head>
+	<link rel="preload" as="image" href={codeBlob} />
+</svelte:head>
+
 {#if showModal}
-	<CodeModal {name} {code} bind:showModal />
+	<CodeModal {name} {codeBlob} bind:showModal />
 {/if}
 
 <button
