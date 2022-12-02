@@ -1,8 +1,11 @@
 ---
 import type { Coupon } from "../../types/types"
+import generateCode from "../../utils/generateQrCodes"
 import ModalButton from "../svelte/ModalButton.svelte"
 
 const { id, name, startDate, endDate, code, imgUrl }: Coupon = Astro.props as Coupon
+
+const codeBlob = await generateCode(code)
 ---
 
 <article
@@ -15,5 +18,5 @@ const { id, name, startDate, endDate, code, imgUrl }: Coupon = Astro.props as Co
 	</div>
 
 	<h1 class="mt-3 text-[1rem] font-bold text-center">{name}</h1>
-	<ModalButton code={code} name={name} client:idle />
+	<ModalButton codeBlob={codeBlob} name={name} client:idle />
 </article>
