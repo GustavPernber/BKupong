@@ -4,11 +4,11 @@
 	export let name: string
 	export let code: string
 
-	let showModal = true
+	let showModal = false
 </script>
 
 {#if showModal}
-	<CodeModal {name} {code} />
+	<CodeModal {name} {code} bind:showModal />
 {/if}
 
 <button
