@@ -6,11 +6,9 @@ import CouponCard from "../components/CouponCard.astro"
 import generateCode from "../utils/generateQrCodes"
 
 const coupons = await getCoupons()
-// coupons.forEach(async (coupon) => {
-// 	await generateCode(coupon.code)
-// })
-
-// console.log(code)
+coupons.forEach(async (coupon) => {
+	await generateCode(coupon.code)
+})
 ---
 
 <Layout title="BKuponger">
@@ -18,7 +16,7 @@ const coupons = await getCoupons()
 		<Header />
 		<div class="flex flex-col items-center justify-start gap-5 px-8">
 			{
-				coupons.splice(0, 1).map((coupon) => {
+				coupons.map((coupon) => {
 					return <CouponCard {...coupon} />
 				})
 			}
