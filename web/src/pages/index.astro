@@ -6,9 +6,9 @@ import CouponCard from "../components/CouponCard.astro"
 import generateCode from "../utils/generateQrCodes"
 
 const coupons = await getCoupons()
-coupons.forEach(async (coupon) => {
-	await generateCode(coupon.code)
-})
+// coupons.forEach(async (coupon) => {
+// 	await generateCode(coupon.code)
+// })
 ---
 
 <Layout title="BKuponger">
