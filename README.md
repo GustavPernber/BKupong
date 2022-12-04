@@ -6,7 +6,7 @@
 
 ## Bakgrund
 
-Klockan 3 en lördag på Järntorget vill ingen stå och kämpa med Burger Kings app för att få chilli cheese tops för 15kr. Från oväntade utloggningar till kuponger som inte skannas, deras "mobilapp" är inte direkt slipad. Däremot är deras kupong-system/API näst intill lika oslipad och mycket lätt att använda för att kringå deras app.
+Klockan 3 en lördag på Järntorget vill ingen stå och kämpa med Burger Kings app för att få chilli cheese tops för 15kr. Från oväntade utloggningar till kuponger som inte skannas; deras "mobilapp" är inte direkt slipad. Detsamma gäller deras kupong-system/API som är näst intill lika oslipad. Därmed är det mycket lätt att bruka deras API på ett sätt som kringår bgränsingarna och problematiken i deras deras app.
 
 Denna applikation hämtar deras kuponger varje måndag kl 00.10 och visar dom [här](https://bkupong.netlify.app). Helt utan inlogg, helt utan begränsningar.
 
