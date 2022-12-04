@@ -58,36 +58,36 @@ export async function scrape() {
 		return
 	}
 
-	// async function redeemCoupons(token: string, coupons: Coupon[]): Promise<Coupon[]> {
-	// 	const couponsPromises: Promise<Coupon>[] = []
+	async function redeemCoupons(token: string, coupons: Coupon[]): Promise<Coupon[]> {
+		const couponsPromises: Promise<Coupon>[] = []
 
-	// 	coupons.forEach((coupon, i) => {
-	// 		couponsPromises.push(
-	// 			new Promise<Coupon>((resolve) => {
-	// 				setTimeout(async () => {
-	// 					const response = await fetch(config.url.redeem(coupon.id), {
-	// 						method: "POST",
-	// 						headers: { "Content-Type": "application/json", Authorization: token }
-	// 					})
-	// 					const result = (await response.json()) as any
+		coupons.forEach((coupon, i) => {
+			couponsPromises.push(
+				new Promise<Coupon>((resolve) => {
+					setTimeout(async () => {
+						const response = await fetch(config.url.redeem(coupon.id), {
+							method: "POST",
+							headers: { "Content-Type": "application/json", Authorization: token }
+						})
+						const result = (await response.json()) as any
 
-	// 					const redeemed = { ...coupon, code: result.data.qrCode as string }
-	// 					resolve(redeemed)
-	// 				}, 500 * i)
-	// 			})
-	// 		)
-	// 	})
+						const redeemed = { ...coupon, code: result.data.qrCode as string }
+						resolve(redeemed)
+					}, 500 * i)
+				})
+			)
+		})
 
-	// 	const result = await Promise.all(couponsPromises)
-	// 	console.log(result)
-	// 	return result
-	// }
+		const result = await Promise.all(couponsPromises)
+		console.log(result)
+		return result
+	}
 
 	const coupons = await getCoupons()
 	const token = await getToken()
 
-	// const redeemedCoupons = await redeemCoupons(token, coupons)
-	// await addCouponsToDb(redeemedCoupons)
+	const redeemedCoupons = await redeemCoupons(token, coupons)
+	await addCouponsToDb(redeemedCoupons)
 
 	return
 }
