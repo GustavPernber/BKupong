@@ -5,12 +5,20 @@ import getCoupons from "../utils/getCoupons"
 import CouponCard from "../components/astro/CouponCard.astro"
 import generateCode from "../utils/generateQrCodes"
 import Icon from "../components/svelte/Icon.svelte"
+import { scrape } from "../utils/scrape"
 
 // If triggered by build hook, scrape
 
-console.log('hook body: ');
-console.log(process.env.INCOMING_HOOK_BODY);
+const hookBody = import.meta.env.INCOMING_HOOK_BODY
+console.log(hookBody)
+try {
+	console.log(JSON.parse(hookBody))
+	console.log(JSON.parse(hookBody)["key"])
+} catch (error) {}
 
+if (hookBody && JSON.parse(hookBody)["key"] === import.meta.env.SCRAPE_KEY) {
+	console.log("MATCH")
+}
 
 const coupons = await getCoupons()
 coupons.forEach(async (coupon) => {

@@ -2,7 +2,7 @@ import config from "./config"
 import fetch from "node-fetch"
 import { MongoClient } from "mongodb"
 
-async function scrape() {
+export async function scrape() {
 	console.log("SCRAPING!!!!")
 	type Coupon = {
 		id: number
