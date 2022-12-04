@@ -6,6 +6,12 @@ import CouponCard from "../components/astro/CouponCard.astro"
 import generateCode from "../utils/generateQrCodes"
 import Icon from "../components/svelte/Icon.svelte"
 
+// If triggered by build hook, scrape
+
+console.log('hook body: ');
+console.log(process.env.INCOMING_HOOK_BODY);
+
+
 const coupons = await getCoupons()
 coupons.forEach(async (coupon) => {
 	await generateCode(coupon.code)
