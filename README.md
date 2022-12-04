@@ -12,4 +12,4 @@ Denna applikation hämtar deras kuponger varje måndag kl 00.10 och visar dom [h
 
 ## Hur?
 
-En Burger King kupong är inte personlig utan består helt enkelt av en kod såsom BKSE*AP415. API scrapern (under `src/utils/scrape.ts`) hämtar dessa och sparar dom i en MongoDB databas. Appen är byggd på Astro med SSG och med lite hjälp av Svelte. Sidan byggs om när databasen uppdateras och servar nästan bara statisk HTML med väldigt lite JavaScript för \_blazingly fast⚡️* hastigheter.
+En Burger King kupong är inte personlig utan består helt enkelt av en kod såsom BKSE*AP415. API scrapern (under `src/utils/scrape.ts`) hämtar dessa och sparar dom i en MongoDB databas. Appen är byggd på Astro med SSG och med lite hjälp av Svelte. Sidan byggs om när databasen uppdateras och servar nästan bara statisk HTML med väldigt lite JavaScript för *blazingly fast⚡️* hastigheter.
