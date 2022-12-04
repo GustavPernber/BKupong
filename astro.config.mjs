@@ -17,30 +17,19 @@ export default defineConfig({
 			// mode: "development",
 			base: "/",
 			scope: "/",
-			includeAssets: ["favicon.svg"],
+			includeAssets: ["favicon.ico"],
 			registerType: "autoUpdate",
 			manifest: {
+				icons: [
+					{ src: "/android-chrome-192x192.png", sizes: "192x192", type: "image/png" },
+					{ src: "/android-chrome-512x512.png", sizes: "512x512", type: "image/png" }
+				],
+
+				display: "standalone",
 				name: "BKupong",
 				short_name: "BKupong",
 				theme_color: "#151520",
-				icons: [
-					{
-						src: "pwa-192x192.png",
-						sizes: "192x192",
-						type: "image/png"
-					}
-					// {
-					// 	src: "pwa-512x512.png",
-					// 	sizes: "512x512",
-					// 	type: "image/png"
-					// },
-					// {
-					// 	src: "pwa-512x512.png",
-					// 	sizes: "512x512",
-					// 	type: "image/png",
-					// 	purpose: "any maskable"
-					// }
-				]
+				background_color: "#151520"
 			},
 			workbox: {
 				globPatterns: ["**/*.{css,js,html,svg,png,ico,txt}"]

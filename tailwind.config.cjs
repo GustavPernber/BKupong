@@ -5,7 +5,7 @@ module.exports = {
 	content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
 	theme: {
 		fontFamily: {
-			sans: ["Inter", ...defaultTheme.fontFamily.sans],
+			sans: ["Inter", ...defaultTheme.fontFamily.sans]
 		},
 
 		extend: {
@@ -15,9 +15,9 @@ module.exports = {
 				blueStroke: "#163451",
 				ctaGreen: "#228945",
 				greenStroke: "#17DB59",
-				white: "#EBF2F5",
-			},
-		},
+				white: "#EBF2F5"
+			}
+		}
 	},
-	plugins: [],
+	plugins: []
 }
