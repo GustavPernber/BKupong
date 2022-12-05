@@ -52,19 +52,22 @@ export async function scrape() {
 
 		const connectionString = config.dbConnectionString
 		const client = new MongoClient(connectionString)
-		const collection = client.db().collection("coupons")
-
-		const oldCoupons = await collection.find().toArray()
-
-		await collection.deleteMany({})
-
 		try {
-			await collection.insertMany(coupons)
-		} catch (error) {
-			await collection.insertMany(oldCoupons)
+			const collection = client.db().collection("coupons")
+
+			const oldCoupons = await collection.find().toArray()
+
+			await collection.deleteMany({})
+
+			try {
+				await collection.insertMany(coupons)
+			} catch (error) {
+				await collection.insertMany(oldCoupons)
+			}
+		} finally {
+			await client.close()
 		}
 
-		await client.close()
 		console.log("Completed document insertion.")
 		return
 	}
