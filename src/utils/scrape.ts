@@ -46,12 +46,23 @@ export async function scrape() {
 	async function addCouponsToDb(coupons: Coupon[]): Promise<void> {
 		console.log("Adding to db: ", coupons)
 
+		if (coupons.length < 2) {
+			throw new Error("To few coupons found")
+		}
+
 		const connectionString = config.dbConnectionString
 		const client = new MongoClient(connectionString)
 		const collection = client.db().collection("coupons")
 
+		const oldCoupons = await collection.find().toArray()
+
 		await collection.deleteMany({})
-		await collection.insertMany(coupons)
+
+		try {
+			await collection.insertMany(coupons)
+		} catch (error) {
+			await collection.insertMany(oldCoupons)
+		}
 
 		await client.close()
 		console.log("Completed document insertion.")
