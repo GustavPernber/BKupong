@@ -1,7 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro"
 import Header from "../components/astro/Header.astro"
-import getCoupons from "../utils/getCoupons"
+import getCouponsFromDb from "../utils/getCouponsFromDb"
 import CouponCard from "../components/astro/CouponCard.astro"
 import generateCode from "../utils/generateQrCodes"
 import Icon from "../components/svelte/Icon.svelte"
@@ -13,7 +13,9 @@ if (hookBody && JSON.parse(hookBody)["key"] === import.meta.env.SCRAPE_KEY) {
 	await scrape()
 }
 
-const coupons = await getCoupons()
+console.log("fetching coupons from db")
+const coupons = await getCouponsFromDb()
+
 coupons.forEach(async (coupon) => {
 	await generateCode(coupon.code)
 })

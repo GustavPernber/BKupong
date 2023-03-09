@@ -107,5 +107,7 @@ export async function scrape() {
 	const redeemedCoupons = await redeemCoupons(token, coupons)
 	await addCouponsToDb(redeemedCoupons)
 
+	console.log("done scraping")
+
 	return
 }
